@@ -7,6 +7,7 @@ const Table = () => {
   const loadUser = async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/users");
     setUser(res.data);
+    console.log("hiii");
   };
   useEffect(() => {
     loadUser();
