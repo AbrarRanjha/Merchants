@@ -100,7 +100,7 @@ const Table = () => {
             textTransform: "uppercase ",
           },
         }}
-        style={{ maxWidth: "90vw", overflow: "scroll" }}
+        style={{ overflow: "scroll" }}
       />
     </div>
   );
