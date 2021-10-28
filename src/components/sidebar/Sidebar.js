@@ -28,7 +28,9 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
 
         <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
-          <a href="#">Admin </a>
+          <NavLink to="/table">
+            <a href="#">Admin </a>
+          </NavLink>
         </div>
 
         <div className="sidebar__link">

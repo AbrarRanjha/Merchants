@@ -53,7 +53,6 @@
 }
 .navbar__logout {
   padding: 10px;
-  color: #e65061;
 }
 
 .navbar__logout > a {
@@ -64,6 +63,13 @@
 }
 
 .navbar__logout > i {
+  margin-right: 10px;
+  font-size: 30px;
+}
+.navbar__logoutt {
+  padding: 10px;
+}
+.navbar__logoutt > i {
   margin-right: 10px;
   font-size: 30px;
 }

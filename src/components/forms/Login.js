@@ -88,10 +88,7 @@ const Login = (handleChange) => {
               {errors.password}
             </p>
           )}
-          <FormControlLabel
-            control={<Checkbox name="checkedB" color="primary" />}
-            label="Remember me"
-          />
+
           <Grid align="center" style={BuutonMa}>
             <Button type="submit" variant="contained" color="secondary">
               Log In
