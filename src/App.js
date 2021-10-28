@@ -20,7 +20,7 @@ const App = () => {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/table" component={Table} />
 
-        <Redirect to="/" />
+        <Redirect to="/customer" />
       </Switch>
     </>
   );
