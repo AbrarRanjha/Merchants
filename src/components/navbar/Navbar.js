@@ -17,20 +17,25 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
       </div>
 
       <div className="navbar__right">
-        <div className="navbar__logoutt">
-          <NavLink to="/admin">
-            <i className="fas fa-users-cog">Admin</i>
+        <div className="navbar__logout">
+          <NavLink to="/table">
+            <Button> Actions </Button>
           </NavLink>
         </div>
-        <div className="navbar__logoutt">
+        <div className="navbar__logout">
+          <NavLink to="/admin">
+            <Button> Admin </Button>
+          </NavLink>
+        </div>
+        <div className="navbar__logout">
           <NavLink to="/merchant">
             <Button> Merchant </Button>
           </NavLink>
         </div>
 
-        <div className="navbar__logoutt">
+        <div className="navbar__logout">
           <NavLink to="/customer">
-            <i className="fas fa-users-cog">Customer</i>
+            <Button> Customer </Button>
           </NavLink>
         </div>
         <div className="navbar__logout">

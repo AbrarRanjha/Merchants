@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import { Grid, Paper, Avatar, Typography, TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import "./signup.css";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+
 import Validations from "./Validations";
 import "react-image-crop/dist/ReactCrop.css";
 
@@ -20,11 +16,10 @@ const SignUp = () => {
     secretPhrase: "",
     status: "",
   });
-  const [state, setState] = useState({ profileImg: "" });
   const paperStyle = { padding: 20, width: 300, margin: "0 auto" };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 5 };
+  const marginTop = { marginTop: 10 };
 
   let [errors, setErrors] = useState({});
   const ChangeEvent = (event) => {
@@ -37,23 +32,12 @@ const SignUp = () => {
     });
   };
 
-  const imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setState({ profileImg: reader.result });
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
-  const { profileImg } = state;
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    var errors = Validations(data, state);
+    var errors = Validations(data);
     setErrors(errors);
     if (!errors.hasErrors) {
-      console.log(data, state);
+      console.log(data);
       alert("submitted SuccessFully!");
     }
   };
@@ -69,23 +53,6 @@ const SignUp = () => {
           </Typography>
         </Grid>
         <form onSubmit={handleSubmit}>
-          <div className="img-holder">
-            <img src={profileImg} alt="" id="img" className="img" />
-          </div>
-          <input
-            type="file"
-            required
-            accept="image/*"
-            id="input"
-            onChange={imageHandler}
-          />
-          <div className="label">
-            <label className="image-upload" htmlFor="input" required>
-              <i className="material-icons">add_photo_alternate</i>
-              Choose profile
-            </label>
-          </div>
-
           <TextField
             fullWidth
             label="Name"
@@ -155,35 +122,7 @@ const SignUp = () => {
             </p>
           )}
 
-          <FormControl component="fieldset" style={marginTop}>
-            <FormLabel component="legend">Status</FormLabel>
-            <RadioGroup
-              row
-              aria-label="gender"
-              name="row-radio-buttons-group"
-              onChange={ChangeEvent}
-              required
-            >
-              <FormControlLabel
-                value="active"
-                name="status"
-                control={<Radio />}
-                label="Active"
-              />
-              <FormControlLabel
-                value="suspended"
-                name="status"
-                control={<Radio />}
-                label="Suspended"
-              />
-            </RadioGroup>
-            {errors.status && (
-              <p style={{ fontSize: "13px", fontWeight: "bold", color: "red" }}>
-                {errors.status}
-              </p>
-            )}
-          </FormControl>
-          <Grid align="center">
+          <Grid align="center" style={marginTop}>
             <Button type="submit" variant="contained" color="primary">
               Signup
             </Button>

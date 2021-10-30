@@ -5,7 +5,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Login from "../../forms/Login";
-import SignUp from "../../forms/Admin/SignUp";
+
 const SignInOutContainer = () => {
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
@@ -41,17 +41,11 @@ const SignInOutContainer = () => {
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example"
-      >
-        <Tab label="Sign In" />
-
-        <Tab label="Sign Up" />
-      </Tabs>
+      ></Tabs>
       <TabPanel value={value} index={0}>
         <Login handleChange={handleChange} />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <SignUp />
-      </TabPanel>
+      <TabPanel value={value} index={1}></TabPanel>
     </Paper>
   );
 };

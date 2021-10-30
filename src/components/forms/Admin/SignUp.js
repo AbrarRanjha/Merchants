@@ -15,11 +15,10 @@ const SignUp = () => {
     secretPhrase: "",
     status: "",
   });
-  const [state, setState] = useState({ profileImg: "" });
+
   const paperStyle = { padding: 20, width: 300, margin: "0 auto" };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 5 };
 
   let [errors, setErrors] = useState({});
   const ChangeEvent = (event) => {
@@ -32,23 +31,12 @@ const SignUp = () => {
     });
   };
 
-  const imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setState({ profileImg: reader.result });
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
-  const { profileImg } = state;
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    var errors = Validations(data, state);
+    var errors = Validations(data);
     setErrors(errors);
     if (!errors.hasErrors) {
-      console.log(data, state);
+      console.log(data);
       alert("submitted SuccessFully!");
     }
   };
@@ -64,23 +52,6 @@ const SignUp = () => {
           </Typography>
         </Grid>
         <form onSubmit={handleSubmit}>
-          <div className="img-holder">
-            <img src={profileImg} alt="" id="img" className="img" />
-          </div>
-          <input
-            type="file"
-            required
-            accept="image/*"
-            id="input"
-            onChange={imageHandler}
-          />
-          <div className="label">
-            <label className="image-upload" htmlFor="input" required>
-              <i className="material-icons">add_photo_alternate</i>
-              Choose profile
-            </label>
-          </div>
-
           <TextField
             fullWidth
             label="Name"

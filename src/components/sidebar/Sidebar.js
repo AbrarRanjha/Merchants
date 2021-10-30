@@ -1,7 +1,6 @@
 import "./Sidebar.css";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
-import { useHistory } from "react-router";
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   return (
@@ -29,38 +28,13 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         <div className="sidebar__link">
           <i className="fa fa-user-secret" aria-hidden="true"></i>
           <NavLink to="/table">
-            <a href="#">Admin </a>
+            <a>Admin Actions </a>
           </NavLink>
         </div>
 
         <div className="sidebar__link">
           <i className="fa fa-building-o"></i>
           <a href="#">Company</a>
-        </div>
-
-        <div className="sidebar__link">
-          <i className="fa fa-wrench"></i>
-          <a href="#">Employees</a>
-        </div>
-
-        <div className="sidebar__link">
-          <i className="fa fa-archive"></i>
-          <a href="#">Warehouse</a>
-        </div>
-
-        <div className="sidebar__link">
-          <i className="fa fa-question"></i>
-          <a href="#">Requests</a>
-        </div>
-
-        <div className="sidebar__link">
-          <i className="fa fa-money"></i>
-          <a href="#">Payroll</a>
-        </div>
-
-        <div className="sidebar__link">
-          <i className="fa fa-briefcase"></i>
-          <a href="#">Paygrade</a>
         </div>
 
         <div className="sidebar__logout">

@@ -11,15 +11,14 @@ import {
   Link,
 } from "@material-ui/core";
 // import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+
 const Login = (handleChange) => {
   let [errors, setErrors] = useState({});
   let history = useHistory();
 
   const paperStyle = {
     padding: 20,
-    height: "73vh",
+    height: "60vh",
     width: 250,
     margin: "0 auto",
   };

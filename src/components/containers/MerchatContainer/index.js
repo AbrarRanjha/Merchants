@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Login from "../../forms/Login";
@@ -41,11 +41,7 @@ const SignInOutContainer = () => {
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example"
-      >
-        <Tab label="Sign In" />
-
-        <Tab label="Sign Up" />
-      </Tabs>
+      ></Tabs>
       <TabPanel value={value} index={0}>
         <Login handleChange={handleChange} />
       </TabPanel>

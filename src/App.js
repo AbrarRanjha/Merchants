@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Dashboard from "./Dashboard";
 import AdminContainer from "./components/containers/AdminContainer/index";
 import MerchatContainer from "./components/containers/MerchatContainer/index";
@@ -7,7 +8,7 @@ import Table from "./components/forms/Customers/Table";
 
 import { Redirect, Route, Switch } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
-// import Table from "./components/pages/Table";
+
 const App = () => {
   return (
     <>

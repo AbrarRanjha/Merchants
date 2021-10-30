@@ -4,10 +4,10 @@ import axios from "axios";
 
 const Table = () => {
   const [user, setUser] = useState([]);
+
   const loadUser = async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/users");
     setUser(res.data);
-    console.log("hiii");
   };
   useEffect(() => {
     loadUser();
@@ -20,79 +20,56 @@ const Table = () => {
       title: "Phone",
       field: "phone",
     },
-    { title: "Role", field: "website" },
+    { title: "Status", field: "website" },
   ];
 
-  // const data = [
-  //   { id: 0, name: "Ali", email: "hello@gmail.com", status: 0, role: "admin" },
-  //   {
-  //     id: 1,
-  //     name: "Javed",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 0,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Awais",
-  //     email: "hello@gmail.com",
-  //     status: 1,
-  //     role: "user",
-  //   },
-  // ];
   return (
     <div>
       <MaterialTable
         title="MerChants Details"
         data={user}
         columns={columns}
+        editable={{
+          onRowAdd: (newRow) =>
+            new Promise((resolve, reject) => {
+              setUser([...user, newRow]);
+              resolve();
+            }),
+          onRowUpdate: (newRow, oldRow) =>
+            new Promise((resolve, reject) => {
+              const index = oldRow.tableData.id;
+              const updatedData = [...user];
+              updatedData[index] = newRow;
+              setTimeout(() => {
+                setUser(updatedData);
+                resolve();
+              }, 500);
+            }),
+          onRowDelete: (selectedRow) =>
+            new Promise((resolve, reject) => {
+              const index = selectedRow.tableData.id;
+              const updatedRow = [...user];
+              updatedRow.splice(index, 1);
+              setTimeout(() => {
+                setUser(updatedRow);
+                resolve();
+              }, 2000);
+            }),
+        }}
         options={{
           search: true,
-          //   filtering: true,
+
           exportButton: true,
+          addRowPosition: "first",
+          actionsColumnIndex: -1,
           rowStyle: {
-            background: "blue",
-            color: "white",
+            background: "#dadddc",
+            color: "black",
             fontSize: "bold",
             fontFamily: "inherit",
           },
           headerStyle: {
-            backgroundColor: "green",
+            backgroundColor: "blue",
             color: "white",
             fontStyle: "italic",
             fontSize: "20px",
